@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Клиент SimpleMessenger";
+}
+
+<div id="mDivSettings" class="mb-3">
+  <label for="mServerUrl" class="form-label">Server URL</label>
+  <div class="input-group">
+    <span class="input-group-text" id="basic-addon3">https://</span>
+    <input id="mServerUrl" type="text" class="form-control" aria-describedby="basic-addon3 mButtonConnect mUserList">
+    <button id="mButtonConnect" type="button" class="btn btn-primary" onclick="DoConnect()">Connect</button>
+  </div>
+  <div id="mUserList" class="form-text">Подключитесь к серверу.</div>
+</div>
+<div id="mDivUser" class="mb-3">
+  <label for="mUserName" class="form-label">Имя пользователя</label>
+  <div class="input-group">
+    <span class="input-group-text" id="mUserAtSymbol">@@</span>
+    <input id="mUserName" type="text" class="form-control" aria-describedby="mUserAtSymbol mButtonLogin mUserInfo">
+    <button id="mButtonLogin" type="button" class="btn btn-primary" onclick="DoLogin()">Login</button>
+  </div>
+  <div id="mUserInfo" class="form-text">&nbsp;</div>
+</div>
+
+<div id="mDivHistory" class="mb-3">
+  <label for="mStartDate" class="form-label">Сообщения за период</label>
+  <div class="input-group">
+    <input id="mStartDate" type="text" class="form-control" aria-describedby="mGetHistoryButton mHistoryHelp">
+    <input id="mEndDate" type="text" class="form-control" aria-describedby="mGetHistoryButton mHistoryHelp">
+    <button id="mGetHistoryButton" type="button" class="btn btn-primary" onclick="DoGetHistory()">Get History</button>
+  </div>
+  <div id="mHistoryHelp" class="form-text">Укажите даты начала и конца периода. Можно ввести одно число - количество минут, которые надо отнять от текущего времени.</div>
+</div>
+<div id="mDivGenerator" class="mb-3">
+  <label for="mStartDate" class="form-label">Флудилка</label>
+  <div class="input-group">
+    <input id="mGeneratorInterval" type="text" placeholder="Интервал в секундах" title="Интервал в секундах" class="form-control" aria-describedby="mStartGeneratorButton mGeneratorHelp">
+    <button id="mStartGeneratorButton" type="button" class="btn btn-primary" onclick="DoStartGenerator()">Включить</button>
+  </div>
+  <div id="mGeneratorHelp" class="form-text">Заполните форму ввода сообщения: Номер сообщения (укажите больше, чем ранее использовавшиеся), Кому. Укажите интервал отправки сообщения. Запустите флудилку. Нажмите еще раз для выключения флудилки.</div>
+</div>
+<label for="mDivMessages" class="form-label">Сообщения</label>
+<div id="mDivMessages" class="mb-3 overflow-y-auto message-div">
+</div>
+<div id="mDivInput" class="mb-3">
+    <textarea id="mMessageText" class="form-control mb-1" rows="4"></textarea>
+    <button id="mButtonSend" type="button" class="btn btn-primary float-end" onclick="DoSendMessage()">Send</button>
+    <input id="mReceiverName" type="text" placeholder="Кому" title="Кому" class="form-control w-25 me-2 float-end">
+    <input id="mMessageNumber" type="text" placeholder="Номер сообщения" title="Номер сообщения" class="form-control w-25 me-2 float-end">
+</div>
+<div class="mb-3">
+    <div id="mSendError" class="form-text"></div>
+</div>

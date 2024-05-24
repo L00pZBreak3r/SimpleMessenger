@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <PackageVersionGrpc>2.63.0-pre1</PackageVersionGrpc>
+    <PackageVersionSwashbuckleAspNetCore>6.6.2</PackageVersionSwashbuckleAspNetCore>
+    <PackageVersionGoogleProtobuf>3.27.0</PackageVersionGoogleProtobuf>
+    <PackageVersionDapper>2.1.35</PackageVersionDapper>
+    <PackageVersionBunit>2.0.24-preview</PackageVersionBunit>
+    <PackageVersionMicrosoftVisualStudioAzureContainers>1.21.0-Preview.1</PackageVersionMicrosoftVisualStudioAzureContainers>
+  </PropertyGroup>
+</Project>

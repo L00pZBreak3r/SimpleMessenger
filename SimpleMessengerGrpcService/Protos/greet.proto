@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+option csharp_namespace = "SimpleMessengerGrpcService.Protos";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+import "google/api/annotations.proto";
+
+package simplemessenger;
+
+service SimpleMessenger {
+  rpc GetUsers (google.protobuf.Empty) returns (UsersReply) {
+    option (google.api.http) = {
+      get: "/v1/getusers"
+    };
+  }
+  rpc GetUserId (google.protobuf.StringValue) returns (google.protobuf.Int64Value) {
+    option (google.api.http) = {
+      post: "/v1/getuserid",
+      body: "*"
+    };
+  }
+  rpc SendTextMessage (SendTextMessageRequest) returns (SendTextMessageReply) {
+    option (google.api.http) = {
+      post: "/v1/sendtextmessage",
+      body: "*"
+    };
+  }
+  rpc GetTextMessagesFromRange(TextMessageRangeRequest) returns (TextMessageRangeReply) {
+    option (google.api.http) = {
+      post: "/v1/gettextmessagesfromrange",
+      body: "*"
+    };
+  }
+  rpc GetFullDump(google.protobuf.Empty) returns (FullDumpReply);
+}
+
+message UserReply {
+  int64 Id = 1;
+  string Name = 2;
+}
+
+message UsersReply {
+  repeated UserReply Users = 1;
+}
+
+message SendTextMessageRequest {
+  int64 SenderId = 1;
+  int64 ReceiverId = 2;
+  string Text = 3;
+  int32 Number = 4;
+}
+
+message SendTextMessageReply {
+  int64 Id = 1;
+  google.protobuf.Timestamp TimeStamp = 2;
+  string Error = 3;
+}
+
+message TextMessageRangeRequest {
+  int64 UserId = 1;
+  google.protobuf.Timestamp Start = 2;
+  google.protobuf.Timestamp End = 3;
+}
+
+message TextMessageReply {
+  int64 Id = 1;
+  google.protobuf.Timestamp TimeStamp = 2;
+  string Text = 3;
+  int32 Number = 4;
+  int64 OtherUserId = 5;
+  string OtherUserName = 6;
+  bool IsMine = 7;
+}
+
+message TextMessageRangeReply {
+  repeated TextMessageReply Messages = 1;
+}
+
+message TextMessageRawReply {
+  int64 Id = 1;
+  google.protobuf.Timestamp TimeStamp = 2;
+  string Text = 3;
+  int32 Number = 4;
+  int64 SenderId = 5;
+  int64 ReceiverId = 6;
+}
+
+message FullDumpReply {
+  repeated UserReply Users = 1;
+  repeated TextMessageRawReply Messages = 2;
+}

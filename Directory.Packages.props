@@ -1,0 +1,20 @@
+<Project>
+  <Import Project="Projects.packages.Web.8.settings.props" />
+  <ItemGroup Label="Db">
+    <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="$(PackageVersionNpgsqlEntityFrameworkCorePostgreSQL)" />
+    <PackageVersion Include="Dapper" Version="$(PackageVersionDapper)" />
+  </ItemGroup>
+  <ItemGroup Label="GrpcService">
+    <PackageVersion Include="Grpc.AspNetCore" Version="$(PackageVersionGrpc)" />
+    <PackageVersion Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="$(PackageVersionMicrosoftAspNetCoreComponents)" />
+    <PackageVersion Include="Microsoft.AspNetCore.Grpc.Swagger" Version="$(PackageVersionMicrosoftAspNetCoreGrpcSwagger)" />
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(PackageVersionMicrosoftAspNetCoreComponents)" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="$(PackageVersionSwashbuckleAspNetCore)" />
+    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="$(PackageVersionMicrosoftVisualStudioAzureContainers)" />
+  </ItemGroup>
+  <ItemGroup Label="GrpcClient">
+    <PackageVersion Include="Grpc.Net.Client" Version="$(PackageVersionGrpc)" />
+    <PackageVersion Include="Google.Protobuf" Version="$(PackageVersionGoogleProtobuf)" />
+    <PackageVersion Include="Grpc.Tools" Version="$(PackageVersionGrpc)" />
+  </ItemGroup>
+</Project>

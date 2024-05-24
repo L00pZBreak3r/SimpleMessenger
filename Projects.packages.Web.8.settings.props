@@ -1,0 +1,9 @@
+<Project>
+  <Import Project="Projects.packages.Web.Base.settings.props" />
+  <PropertyGroup>
+    <PackageVersionEntityFrameworkCore>8.0.5</PackageVersionEntityFrameworkCore>
+    <PackageVersionMicrosoftAspNetCoreComponents>8.0.5</PackageVersionMicrosoftAspNetCoreComponents>
+    <PackageVersionMicrosoftAspNetCoreGrpcSwagger>0.8.5</PackageVersionMicrosoftAspNetCoreGrpcSwagger>
+    <PackageVersionNpgsqlEntityFrameworkCorePostgreSQL>8.0.4</PackageVersionNpgsqlEntityFrameworkCorePostgreSQL>
+  </PropertyGroup>
+</Project>
